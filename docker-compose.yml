@@ -1,0 +1,18 @@
+version: '3.9'
+services:
+  web:
+   build: ./web
+   ports:
+    - '8753:8753'
+   restart: always 
+   volumes:
+    - "/opt/web/logs:/var/log/nginx"
+    - "/opt/nginx/cert:/etc/nginx/cert"
+  app:
+   build: ./app
+   restart: always
+ 
+   
+   
+
+   

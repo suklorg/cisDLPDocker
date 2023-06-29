@@ -1,0 +1,29 @@
+FROM node:18
+
+#env pro docker compose
+ENV NODE_ENV=test
+# Installing Oracle instant client
+WORKDIR   /opt/oracle
+
+RUN apt-get update && apt-get install -y libaio1
+
+#instant client
+
+RUN wget https://download.oracle.com/otn_software/linux/instantclient/instantclient-basiclite-linuxx64.zip && \
+    unzip instantclient-basiclite-linuxx64.zip && \
+    rm -f instantclient-basiclite-linuxx64.zip && \
+    cd instantclient* && \
+    rm -f *jdbc* *occi* *mysql* *jar uidrvci genezi adrci && \
+    echo /opt/oracle/instantclient* > /etc/ld.so.conf.d/oracle-instantclient.conf && \
+    ldconfig
+
+ENV  LD_LIBRARY_PATH=/usr/lib/instantclient
+
+# instalace aplikace
+WORKDIR /opt/cis  
+
+COPY  package.json .
+RUN npm install
+COPY . .
+
+CMD ["node", "app.js"]
