@@ -4,5 +4,5 @@
 
 v adresari /opt/cisDLPDocker\
 git pull \
-docker compose -f {file dle prostredi}\
+docker compose -f {file dle prostredi} build\
 docker compose up -d
