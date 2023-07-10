@@ -1,0 +1,23 @@
+version: '3.9'
+services:
+  web:
+   build:
+    context: ./web
+    target: test
+   ports:
+    - '8753:8753'
+   restart: always 
+   volumes:
+    - "/opt/web/logs:/var/log/nginx"
+  app:
+   build:
+    context: ./app
+    target: testprod
+   restart: always
+   environment:
+    NODE_ENV: test
+ 
+   
+   
+
+   
