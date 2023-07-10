@@ -1,6 +1,6 @@
-#Ciselniky DLP nove v Dockeru\
+# Ciselniky DLP nove v Dockeru
 
-##Instalace na server\
+## Instalace na server
 
 v adresari /opt/cisDLPDocker\
 git pull \
