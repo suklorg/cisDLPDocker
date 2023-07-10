@@ -9,6 +9,7 @@ services:
    restart: always 
    volumes:
     - "/opt/web/logs:/var/log/nginx"
+    - "/opt/nginx/cert:/etc/nginx/cert"
   app:
    build:
     context: ./app
