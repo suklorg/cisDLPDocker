@@ -1,8 +1,8 @@
-Ciselniky DLP nove v Dockeru
+#Ciselniky DLP nove v Dockeru\
 
-Instalace na server
+##Instalace na server\
 
-v adresari /opt/cisDLPDocker
-git pull 
-docker compose -f {file dle prostredi} 
+v adresari /opt/cisDLPDocker\
+git pull \
+docker compose -f {file dle prostredi}\
 docker compose up -d
