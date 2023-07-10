@@ -1,7 +1,7 @@
-FROM node:18
+FROM node:18 as testprod
 
-#env pro docker compose
-ENV NODE_ENV=test
+# NODE_ENV je v docker compose files
+
 # Installing Oracle instant client
 WORKDIR   /opt/oracle
 
@@ -27,3 +27,10 @@ RUN npm install
 COPY . .
 
 CMD ["node", "app.js"]
+
+FROM testprod as dev
+
+RUN npm install -g nodemon
+
+CMD ["nodemon", "app.js"]
+
