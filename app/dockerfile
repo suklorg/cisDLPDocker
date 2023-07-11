@@ -1,3 +1,4 @@
+#Tohle je docker file, test zmena git
 FROM node:18 as testprod
 
 # NODE_ENV je v docker compose files
