@@ -75,11 +75,17 @@ lp_router.get('/lecivepripravky', (req, res) => __awaiter(void 0, void 0, void 0
     let oraProcedure; // = new OraProcedure(oraProcs.getLecivePripravkyKodSukl);
     try {
         (0, common_1.SetHeader)(res);
+        //// lecivepripravky?registracni_cislo={registracni_cislo}
+        //
+        if ((typeof req.query.registracni_cislo !== "undefined") && (Object.keys(req.query).length === 1)) {
+            common_1.oraProcs.getLecivePripravkyRegCislo.procParams.registracni_cislo.val = req.query.registracni_cislo;
+            oraExecuteResult = yield (0, common_1.ExecuteProcedure)(common_1.oraProcs.getLecivePripravkyRegCislo);
+        }
         //res.type('application/json');
         //
         // /lecivepripravky
         //
-        if (Object.keys(req.query).length === 0) {
+        else if (Object.keys(req.query).length === 0) {
             common_1.oraProcs.getLecivePripravky.procParams.offset.val = common_1.defOffset;
             common_1.oraProcs.getLecivePripravky.procParams.limit.val = common_1.defLimit;
             oraExecuteResult = yield (0, common_1.ExecuteProcedure)(common_1.oraProcs.getLecivePripravky);

@@ -80,12 +80,22 @@ lp_router.get('/lecivepripravky', async (req: express.Request, res: express.Resp
 
     try {
         SetHeader(res);
+        //// lecivepripravky?registracni_cislo={registracni_cislo}
+        //
+        if ((typeof req.query.registracni_cislo !== "undefined") && (Object.keys(req.query).length === 1)) {
+            oraProcs.getLecivePripravkyRegCislo.procParams.registracni_cislo.val = req.query.registracni_cislo;
+            oraExecuteResult = await ExecuteProcedure(oraProcs.getLecivePripravkyRegCislo);
+        }
+
+
+
         //res.type('application/json');
         //
         // /lecivepripravky
         //
 
-        if (Object.keys(req.query).length === 0) {
+
+        else if (Object.keys(req.query).length === 0) {
             oraProcs.getLecivePripravky.procParams.offset.val = defOffset;
             oraProcs.getLecivePripravky.procParams.limit.val = defLimit;
             oraExecuteResult = await ExecuteProcedure(oraProcs.getLecivePripravky);

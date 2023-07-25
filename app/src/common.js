@@ -50,37 +50,6 @@ var common;
             connectString: '(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(COMMUNITY=TCP)(PROTOCOL=TCP)(Host=s-dlp-db.sukl.cz)(Port = 1521)))(CONNECT_DATA=(SID=AISLP)(GLOBAL_NAME=DLPTEST)))'
         };
     }
-    //*/
-    //let connAttributes = new ConnectionAttributes(connectionAttributes);
-    //let connAttributesDlp = new ConnectionAttributes(connectionAttributesDlp);
-    /*
-        export const connectionAttributes: IConnectionAttributes = {
-            user: (<any>connAttributes).user,
-            password: (<any>connAttributes).password,
-            connectString: (<any>connAttributes).connectString
-        };
-    
-        export const connectionAttributesDlp: IConnectionAttributes = {
-            user: (<any>connAttributesDlp).user,
-            password: (<any>connAttributesDlp).password,
-            connectString: (<any>connAttributesDlp).connectString
-        }
-        
-    //*/
-    /*
-        export const connectionAttributes: IConnectionAttributes = {
-            user: "cis2016",
-            password: "Amtax67779",
-            connectString: "util"
-        };
-    /*/
-    /*
-        export const connectionAttributes: IConnectionAttributes = {
-            user: "cis_sukl",
-            password: "cis_sukl",
-            connectString: "dlptest"
-        };
-    //*/
     common.oraOutFormat = {
         outFormat: oracledb_1.OBJECT
     };
@@ -200,6 +169,15 @@ var common;
     common.SetHeader = SetHeader;
     ;
     common.oraProcs = {
+        getLecivePripravkyRegCislo: {
+            procName: "BEGIN cis_sukl_lp.GetLecivePripravkyRegCislo( :registracni_cislo, :total_count, :count, :cursor ); END;",
+            procParams: {
+                registracni_cislo: { val: '', type: oracledb_1.STRING, dir: oracledb_1.BIND_IN },
+                total_count: { type: oracledb_1.NUMBER, dir: oracledb_1.BIND_OUT },
+                count: { type: oracledb_1.NUMBER, dir: oracledb_1.BIND_OUT },
+                cursor: { type: oracledb_1.CURSOR, dir: oracledb_1.BIND_OUT }
+            }
+        },
         getDistributori: {
             procName: "BEGIN cis_sukl_Distributori.GetDistributori( :count, :cursor ); END;",
             procParams: {

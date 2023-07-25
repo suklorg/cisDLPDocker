@@ -1,0 +1,3 @@
+C:\Users\smahel\Source\Repos\cisDLPDocker\app\obj\Debug\CisSuklRestApi.njsproj.AssemblyReference.cache
+C:\Users\smahel\Source\Repos\cisDLPDocker\app\obj\Debug\CisSuklRestApi.njsproj.CoreCompileInputs.cache
+C:\Users\smahel\Source\Repos\cisDLPDocker\app\bin\Microsoft.NodejsTools.WebRole.dll
