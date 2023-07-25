@@ -21,6 +21,7 @@ const cissukl_distributori_router_1 = require("./src/routers/cissukl_distributor
 const common_1 = require("./src/common");
 let port = 8080;
 let app = express();
+
 ///*
 const path = require('path');
 app.use(express.static(path.join(__dirname, 'public')));
