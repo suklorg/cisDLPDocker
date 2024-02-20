@@ -4,7 +4,7 @@
 git,docker pro CENTOS na RHEL
 
 # Instalace 
-v /opt/ git clone  https://github.com/suklorg/cisDLPDocker.git\
+v /opt/ git clone  https://github.com/suklorg/cisDLPDocker.git
 nebo pouze update v adresari /opt/cisDLPDocker\
 git pull \
 dale pak build a spusteni\
