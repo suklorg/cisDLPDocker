@@ -14,7 +14,7 @@ CMD ["nginx", "-g", "daemon off;"]
 
 FROM dev as prod
 
-RUN rm /etc/nginx/conf.d/dlpapitest.conf
+RUN rm /etc/nginx/conf.d/dlpapidev.conf
 COPY dlpapiprod.conf /etc/nginx/conf.d/
 
 CMD ["nginx", "-g", "daemon off;"]
